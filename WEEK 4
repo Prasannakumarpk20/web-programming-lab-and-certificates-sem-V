@@ -1,0 +1,666 @@
+WEEK-4 TYPE THE CODE 
+ 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Building Material Inventory Management System</title> 
+  <link rel="stylesheet" href="./style.css"> 
+</head> 
+<body> 
+  
+   
+  <div class="formdiv"> 
+  <h3 >Building Material Inventory</h3> 
+  <form> 
+   
+    <label for="materialName">Material Name:</label> 
+    <input  type="text" id="materialName" placeholder="Enter material name" > 
+    <label for="category">Material Category:</label> 
+    <select id="category"> 
+      <option value="Wood">Wood</option>  
+      <option value="Cement">Cement</option> 
+      <option value="Steel">Steel</option> 
+      <option value="Bricks">Bricks</option> 
+      <option value="Glass">Glass</option> 
+    </select> 
+    <label for="quantity">Quantity</label> 
+    <input id="quantity" type="number" placeholder="Enter quantity"> 
+    <label for="supplierName">Supplier Name:</label> 
+    <input id="supplierName" placeholder="Enter supplier name" type="text"> 
+    <label for="costPerUnit">Cost Per Unit(RS):</label> 
+    <input id="costPerUnit" type="number" placeholder="Enter cost per unit"> 
+    <button type="button" id="addMaterialBtn">Submit Material</button> 
+    <span id="error-message"></span>  
+  </form> 
+ 
+</div> 
+ 
+<section> 
+  <table id="materialTable"> 
+    <caption>Material List:</caption> 
+    <thead id="headerRow"> 
+       
+       <tr> 
+        <th>Material Name</th> 
+        <th>Category</th> 
+        <th>Quantity</th> 
+        <th>Supplier</th> 
+        <th>Cost Per Unit (RS)</th> 
+ 
+       </tr> 
+    </thead> 
+    <tbody> 
+ 
+    </tbody> 
+     
+ 
+  </table> 
+ 
+</section> 
+ 
+  <div class="summary"> 
+    <h3>Inventory Summary:</h3> 
+    <h3>Total Products: <span id="totalProducts">0</span></h3> 
+    <h3>Most Expensive Product: <span id="mostExpensive">None</span></h3> 
+ 
+  </div> 
+ 
+ 
+  <script src="./script.js"></script> 
+</body> 
+</html> 
+ 
+ 
+form{ 
+    display: flex; 
+    width:60%; 
+    
+    justify-content: center; 
+    flex-direction: column; 
+} 
+ 
+.formdiv{ 
+    display: flex; 
+   align-items: center; 
+    justify-content: center; 
+    flex-direction: column; 
+ 
+} 
+ 
+input{ 
+    margin-bottom: 1%; 
+} 
+ 
+select{ 
+    margin-bottom: 1%; 
+} 
+ 
+#addMaterialBtn{ 
+    background-color: rgb(76,175,80); 
+    padding: 1%; 
+    color:rgb(255,255,255); 
+    font-size: large; 
+    font-weight: bold; 
+ 
+} 
+ 
+thead{ 
+    background-color: rgb(76,175,80); 
+} 
+ 
+.summary{ 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column; 
+    
+} 
+ 
+#error-message{ 
+    opacity:0; 
+    color:red; 
+    text-align: center; 
+    font-weight: bold; 
+} 
+ 
+.headerTxt{ 
+    text-align: center; 
+} 
+#materialTable{ 
+    margin-top: 2%; 
+    margin-left: 20%; 
+    width:60% 
+ 
+} 
+ 
+#headerRow{ 
+    background-color: rgb(76,175,80); 
+    color:rgb(255,255,255); 
+ 
+} 
+ 
+#headerRow th{ 
+    text-align: center; 
+   
+    padding: 1%; 
+} 
+ 
+caption{ 
+    font-weight: bold; 
+    font-size: large; 
+ 
+} 
+ 
+.trow{ 
+    text-align: center; 
+} 
+ 
+label{ 
+    font-weight: bold; 
+    font-size: large;} 
+ 
+document.getElementById("addMaterialBtn").addEventListener("click",()=>{ 
+ 
+    const name=document.getElementById("materialName").value.trim(); 
+    const qty=document.getElementById("quantity").value.trim(); 
+    const sn=document.getElementById("supplierName").value.trim(); 
+    const cpi=document.getElementById("costPerUnit").value.trim(); 
+    const errMsg=document.getElementById("error-message"); 
+    const cat=document.getElementById("category"); 
+    const catVal=cat.options[cat.selectedIndex].text; 
+ 
+ 
+    if(!name || !catVal || !sn || !cpi || !qty){ 
+        errMsg.textContent="Please fill out all fields!"; 
+        errMsg.style.opacity=1; 
+        return; 
+    } 
+ 
+    else{ 
+        errMsg.style.opacity=0; 
+        const table=document.getElementById("materialTable"); 
+        const tbody=document.querySelector("#materialTable tbody"); 
+        const trow=document.createElement("tr"); 
+        const tp=document.getElementById("totalProducts"); 
+        const eItem=document.getElementById("mostExpensive"); 
+        let arr=[name,catVal,qty,sn,cpi]; 
+ 
+        for(let i=0;i<5;i++){ 
+            let tdata=document.createElement("td"); 
+            if(i==4){ 
+                let c=parseFloat(arr[i]).toFixed(2); 
+                tdata.textContent=`RS ${c}`; 
+            } 
+            else{ 
+                tdata.textContent=arr[i]; 
+            } 
+            
+            trow.appendChild(tdata); 
+        } 
+ 
+        trow.classList.add("trow"); 
+        tbody.appendChild(trow); 
+ 
+        let n=table.rows.length-1; 
+        tp.textContent=n; 
+        const data=getTableData(tbody); 
+        eItem.textContent=`${data.name} (R S ${data.cost})`; 
+        document.getElementsByTagName("form")[0].reset(); 
+    } 
+   
+ 
+ 
+}) 
+ 
+ 
+const getTableData=(tbody)=>{ 
+    let mc=0; 
+    let ei=""; 
+    for(let row of tbody.rows){ 
+        const name=row.cells[0].textContent.trim(); 
+        const txt=row.cells[4].textContent.trim(); 
+        const cost=parseFloat(txt.replace(/[^\d.]/g,"")).toFixed(2); 
+        if(cost>mc){ 
+            mc=cost; 
+            ei=name; 
+        } 
+     
+    } 
+     
+    return {name:ei,cost:mc} 
+} 
+ 
+WEEK 4-PRACTICE AT HOME-1 
+ 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Habit Tracker</title> 
+  <link rel="stylesheet" href="./style.css"> 
+ 
+</head> 
+<body>   
+  <div class="main-cont"> 
+    <form> 
+      <h1>Habit Tracker</h1> 
+      <div class="formdiv"> 
+        <input type="checkbox" id="chkWater"> 
+        <label for="chWater">Drink Water</label> 
+      </div> 
+      
+      <div class="formdiv"> 
+        <input type="checkbox" id="chkExercise"> 
+        <label for="chkExercise">Exercise</label> 
+      </div> 
+ 
+      <div class="formdiv"> 
+        <input type="checkbox" id="chkReading"> 
+        <label for="chkReading">Read a book</label> 
+      </div> 
+ 
+      
+      <div class="btnDiv"> 
+        <button id="mark-progress" type="button">Mark Progress</button> 
+        <button id="reset-progress" type="button">Reset</button> 
+      </div> 
+       
+    </form> 
+ 
+    <p id="summary">You have completed <span id="count">0</span> habits today.</p> 
+   </div> 
+    <script src="./script.js"></script> 
+</body> 
+</html> 
+.main-cont{ 
+    width:50%; 
+     
+    background-color: whitesmoke; 
+    border:2px solid  white; 
+    border-radius: 1rem; 
+    margin-left: 30%; 
+     
+} 
+form{ 
+    display: flex; 
+     margin-left:36%; 
+    justify-content: center; 
+    flex-direction: column; 
+    
+} 
+ 
+.btnDiv{ 
+    display: flex; 
+    align-items: center; 
+   
+     
+} 
+ 
+#mark-progress{ 
+    background-color: rgb(41,168,71); 
+    margin-right: 2%; 
+} 
+#reset-progress{ 
+    background-color: red; 
+} 
+ 
+button{ 
+    margin-top: 2%; 
+    color:white; 
+    padding: 2%; 
+} 
+ 
+p{ 
+    
+   margin-left: 34%; 
+} 
+.formdiv{ 
+    margin-bottom: 1%;} 
+document.getElementById("mark-progress").addEventListener("click",()=>{ 
+ 
+    const dw=document.getElementById("chkWater"); 
+    const de=document.getElementById("chkExercise"); 
+    const rb=document.getElementById("chkReading"); 
+    const sumTxt=document.getElementById("count"); 
+    let n=0; 
+ 
+    if(dw.checked){ 
+        n=n+1 
+    } 
+    if(de.checked){ 
+        n=n+1 
+    } 
+    if(rb.checked){ 
+        n=n+1 
+    } 
+ 
+    sumTxt.textContent=n; 
+ 
+ 
+ 
+}) 
+ 
+ 
+ 
+document.getElementById("reset-progress").addEventListener("click",()=>{ 
+    document.getElementsByTagName("form")[0].reset(); 
+    const sumTxt=document.getElementById("count"); 
+    let n=0; 
+    sumTxt.textContent=n; 
+ 
+}) 
+ 
+ 
+ 
+WEEK-4 PRACTICE AT HOME -2 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link rel="stylesheet" href="./styles.css"> 
+<title>Multiplication Table Generator</title> 
+</head> 
+<body> 
+<div class="mulClass"> 
+<h3>Multiplication Table Generator</h3> 
+<label for="number">Enter a number:</label> 
+<input id="number" type="number" placeholder="Enter a number"> 
+<label for="start">Start Value:</label> 
+<input id="start" type="number" placeholder="Start of range"> 
+<label for="end">End Value:</label> 
+<input id="end" type="number"  placeholder="End of range"> 
+<button type="button" id="generateBtn">Generate Table</button> 
+<span id="errormessage">All fields are required!</span> 
+<div id="table"> 
+</div> 
+</div> 
+<script src="./script.js"></script> 
+</body> 
+</html> 
+body{ 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+} 
+.mulClass{ 
+display: flex; 
+flex-direction: column; 
+background-color: white; 
+box-shadow: 2px 2px 2px rgb(224, 220, 220); 
+border-radius: 1rem; 
+width:40%; 
+padding: 2%; 
+min-height: fit-content; 
+} 
+#generateBtn{ 
+background-color: rgb(77,176,80); 
+color: rgb(255,255,255); 
+padding: 1%; 
+} 
+input{ 
+margin-bottom: 2%; 
+padding: 1%; 
+} 
+label{ 
+font-weight: bold; 
+} 
+#table{ 
+display: flex; 
+flex-direction: column; 
+} 
+#errormessage{ 
+color:red; 
+opacity:0; 
+text-align: center; 
+} 
+document.getElementById("generateBtn").addEventListener("click",()=>{ 
+const maindiv=document.getElementsByClassName("mulClass")[0]; 
+const num=document.getElementById("number").value.trim(); 
+const start=document.getElementById("start").value.trim(); 
+const end=document.getElementById("end").value.trim(); 
+const errtxt=document.getElementById("errormessage"); 
+if(!num || !start || !end){ 
+errtxt.style.opacity=1; 
+return; 
+} 
+else{ 
+errtxt.style.opacity=0; 
+let i=parseInt(start); 
+let j=parseInt(end); 
+let n=parseInt(num); 
+const tdiv=document.getElementById("table"); 
+tdiv.innerHTML=""; 
+const ptxt=document.createElement("p"); 
+ptxt.textContent=`Multiplication Table of ${n}`; 
+ptxt.style.fontWeight="bold"; 
+tdiv.appendChild(ptxt); 
+for(let k=i;k<=j;k++){ 
+let mele=document.createElement("p"); 
+let res=n*k; 
+mele.textContent=`${n} x ${k} = ${res}`; 
+tdiv.appendChild(mele); 
+} 
+} 
+}) 
+WEEK 4-CHALLENGE YOURSELF 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Document</title> 
+</head> 
+<body> 
+<!-- Write your code --> 
+<h1>Grade Calculator</h1> 
+<div> 
+<span id="marksLabel">Enter your marks (0-100): </span> 
+<input id="marks" type="number"> 
+<button type="button" id="getGradeButton">Convert</button> 
+<p id="gradeResult"></p> 
+</div> 
+<script src="./script.js"></script> 
+</body> 
+</html> 
+document.getElementById("getGradeButton").addEventListener("click",()=>{ 
+ 
+    const mark=parseInt(document.getElementById("marks").value.trim()); 
+    const result=document.getElementById("gradeResult"); 
+ 
+    if(!mark){ 
+        result.textContent="Enter any marks to get the grades."; 
+        return; 
+    } 
+ 
+    else if(!(mark>=0 && mark<=100)){ 
+        result.textContent="The marks should be between 0-100."; 
+        return; 
+    } 
+ 
+    else{ 
+        if(mark>=90){ 
+            result.textContent=`For marks ${mark}, your grade is: A`; 
+ 
+        } 
+        else if(mark>=80 && mark<=89){ 
+            result.textContent=`For marks ${mark}, your grade is: B`; 
+        } 
+ 
+        else if(mark>=70 && mark<=79){ 
+            result.textContent=`For marks ${mark}, your grade is: C`; 
+        } 
+ 
+        else if(mark>=60 && mark<=69){ 
+            result.textContent=`For marks ${mark}, your grade is: D`; 
+        } 
+ 
+        else{ 
+            result.textContent=`For marks ${mark}, your grade is: F`; 
+        } 
+ 
+    } 
+}) 
+ 
+ 
+WEEK-4 FIX THE CODE 
+ 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Music Album Collection Manager</title> 
+    <link rel="stylesheet" href="style.css"> 
+</head> 
+<body> 
+    <header> 
+        <h3>Music Album Collection</h3> 
+    </header> 
+     
+    <form> 
+        <label for="albumName">Album Name: </label> 
+        <input id="albumName" type="text" required placeholder="Enter album name"> 
+        <br><br> 
+         
+        <label for="releaseYear">Release Year: </label> 
+        <input id="releaseYear" type="number" required placeholder="Enter release year"> 
+        <br><br> 
+         
+        <label for="genre">Genre: </label> 
+        <select id="genre"> 
+            <option value="">Select genre</option> 
+            <option value="Pop">Pop</option> 
+            <option value="Rock">Rock</option> 
+            <option value="Jazz">Jazz</option> 
+            <option value="Classical">Classical</option> 
+        </select> 
+        <br><br> 
+         
+         
+        <input type="checkbox" id="favorite"> 
+        <label for="favorite">Mark as Favorite </label> 
+        <br><br> 
+         
+        <button id="addAlbumBtn" type="button">Add Album</button> 
+        <span id="error-message"></span> 
+    </form> 
+ 
+    <h2>Album List:</h2> 
+<ul id="albumList"></ul> 
+<h2>Favorite Albums:</h2> 
+<ul id="favoriteAlbumList"></ul> 
+<script src="script.js"></script> 
+</body> 
+</html> 
+body{ 
+    font: 18px Arial, sans-serif; 
+    background: lightblue; 
+    padding: 10px; 
+} 
+ 
+h1 { 
+    font-family: 'Times New Roman'; 
+    font-size: 40px;  
+} 
+ 
+#albumList { 
+    /* color: blue;  */ 
+    background-color: lightgray; 
+    text-align: center; 
+    font-size: 14px; 
+} 
+ 
+ul { 
+    margin-left: 10px; 
+    padding-left: 20px; 
+    list-style-type: square; 
+} 
+ 
+input[type="text"] { 
+    padding: 5px 10px; 
+    width: 180px; 
+} 
+ 
+button { 
+    background-color: rgb(76,175,80); 
+    color: red; 
+    padding: 10px 20px; 
+    border: none; 
+    /* cursor: not-allowed; */ 
+} 
+ 
+#error-message { 
+    color: #ff0000; 
+    font-weight: normal; 
+    font-size: 14px; 
+    display: block; 
+    text-align: left; 
+   
+} 
+#favoriteAlbumList li { 
+/* color: green; */ 
+font-size: 12px; 
+font-weight: light; 
+} 
+input[type="number"] { 
+width: 120px; 
+padding: 8px; 
+margin-top: 5px; 
+background-color: yellow; 
+} 
+document.getElementById("addAlbumBtn").addEventListener("click",()=>{ 
+    const an=document.getElementById("albumName").value.trim(); 
+    const ry=document.getElementById("releaseYear").value.trim(); 
+    const gl=document.getElementById("genre"); 
+    const genre=gl.options[gl.selectedIndex].text; 
+    const fav=document.getElementById("favorite"); 
+    const em=document.getElementById("error-message"); 
+ 
+    if(!an || !ry ||!(gl.value.trim())){ 
+        em.textContent="Please fill out all fields!"; 
+        
+        document.getElementsByTagName("form")[0].reset(); 
+        return; 
+    } 
+ 
+    else if(fav.checked){ 
+       em.textContent=""; 
+        const favoriteAlbumList=document.getElementById("favoriteAlbumList"); 
+        const liEle=document.createElement("li"); 
+        // const hEle1=document.createElement("h2"); 
+        // const hEle2=document.createElement("h2"); 
+       
+        liEle.innerHTML=`<strog>${an}</strong><br><em>Released: ${ry} | Genre: ${genre}  
+</em> `; 
+        // liEle.appendChild(hEle1); 
+        // liEle.appendChild(hEle2); 
+        favoriteAlbumList.appendChild(liEle); 
+        document.getElementsByTagName("form")[0].reset(); 
+        return; 
+ 
+         
+    } 
+    else { 
+        em.textContent=""; 
+        em.style.opacity=0; 
+        const albumList=document.getElementById("albumList"); 
+        const liEle=document.createElement("li"); 
+        // const hEle1=document.createElement("h2"); 
+        // const hEle2=document.createElement("h2"); 
+        // hEle1.innerHTML=an; 
+        // hEle2.innerHTML=`<em>Released: </em> ${ry} | <em>Genre: </em> ${genre}`; 
+        liEle.innerHTML=`<strog>${an}</strong><br><em>Released: ${ry} | Genre: ${genre}  
+</em> `; 
+        // liEle.appendChild(hEle1); 
+// liEle.appendChild(hEle2); 
+albumList.appendChild(liEle); 
+document.getElementsByTagName("form")[0].reset(); 
+return; 
+} 

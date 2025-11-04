@@ -1,0 +1,552 @@
+WEEK-2 TYPE THE CODE 
+<!-- write you code here --> 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Top Tourist Destinations</title> 
+</head> 
+<body> 
+<h1>Top Tourist Destinations</h1> 
+<ol> 
+<li> 
+<h2>Paris</h2> 
+<ul> 
+<li> 
+<p><b>Description:</b> 
+Known for its romantic ambiance and iconic 
+landmarks like the Eiffel Tower. 
+</p>   
+</li> 
+<li> 
+<img src="./paris.jpg" alt="paris" width="300px"> 
+</li> 
+</ul> 
+</li> 
+<li> 
+<h2>New York</h2> 
+<ul> 
+<li> 
+<p><b>Description:</b> 
+Famous for the Statue of Liberty, Times Sqaure, 
+and Central Park. 
+</p>   
+</li> 
+<li> 
+                    <img src="./new-york.jpg" alt="new-york" 
+width="300px"> 
+                </li> 
+            </ul> 
+        </li> 
+ 
+        <li> 
+           <h2>Tokyo</h2> 
+           <ul> 
+            <li> 
+              <p><b>Description:</b> 
+                  A blend of modern skyscrapers and 
+                  traditional temples, with vibrant districts 
+                  like Shibuya. 
+              </p>   
+              
+            </li> 
+            <li> 
+                <img src="./tokyo.jpg" alt="tokyo" width="300px"> 
+            </li> 
+        </ul> 
+            
+        </li> 
+        <li> 
+           <h2>Rome</h2> 
+           <ul> 
+            <li> 
+              <p><b>Description:</b> 
+                 Known for its ancient history, including 
+                 landmarks like Colasseum and Vatican City. 
+              </p>   
+              
+            </li> 
+            <li> 
+                <img src="./rome.jpg" alt="rome" width="300px"> 
+            </li> 
+        </ul> 
+            
+        </li> 
+        <li> 
+<h2>London</h2> 
+<ul> 
+<li> 
+<p><b>Description:</b> 
+Famous for its rich history, the Tower of London, 
+Buckingham Palace, and the London Eye. 
+</p>   
+</li> 
+<li> 
+<img src="./london.jpg" alt="london" width="300px"> 
+</li> 
+</ul> 
+</li> 
+</ol> 
+</body> 
+</html> 
+
+
+WEEK-2 FIX THE CODE 
+
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Luxury Stays - Book Your Dream Room</title> 
+<meta name="description" content="Luxury Stays offers the finest rooms 
+and amenities."> 
+</head> 
+<body> 
+<header> 
+<h1>Welcome to Luxury Stays</h1> 
+<h2>Your Dream Stay Awaits</h2> 
+<img src="logo.png" alt="Luxury Stays Logo" width="100" 
+height="100"> 
+<nav> 
+<ul> --> 
+<li><a href="#about">About the Hotel</a></li> 
+<li><a href="#rooms">Rooms and Pricing</a></li> 
+<li><a href="#services">Hotel Services</a></li> 
+<li><a href="#gallery">Gallery</a></li> 
+<li><a href="#contact">Contact Us</a></li> 
+<!-- <li><a href="#special-offers">Special Offers</a></li>  
+</ul> 
+</nav> 
+</header> 
+<section id="about"> 
+<h2>About the Hotel</h2> 
+<p>Luxury Stays offers the finest hospitality with exceptional 
+service, comfortable rooms, and world-class amenities. 
+<!-- <strong>Best stay ever</strong>  --> 
+</section> 
+<section id="rooms"> 
+<h2>Rooms and Pricing</h2> 
+<table border="1"> 
+<thead> 
+<tr> 
+<th>Room Type</th> 
+<th>Price per Night</th> 
+<th>Description</th> 
+</tr> 
+</thead> 
+<tbody> 
+<tr> 
+amenities.</td> 
+<td>Single Room</td> 
+<td>$200</td> 
+<td>A comfortable room with a single bed and basic 
+</tr> 
+<tr> 
+<td>Double Room</td> 
+<td>$150</td> 
+<td>A spacious room with a king-size bed and a 
+beautiful view.</td> 
+</tr> 
+<tr> 
+<td>Suite</td> 
+<td>$250</td> 
+<td>A luxurious suite with a living area, jacuzzi, and 
+premium amenities.</td> 
+</tr> 
+<tr> 
+<td>Presidential Suite</td> 
+<td>$500</td> 
+<td>An extravagant suite with multiple rooms, a 
+private balcony, and butler service.</td> 
+</tr> 
+</tbody> 
+</table> 
+</section> 
+<section id=services> 
+<h2>Hotel Services</h2> 
+<ul> 
+<li>Free Wi-Fi</li> 
+<li>24/7 Room Service</li> 
+<li>Swimming Pool</li> 
+<li>Gym</li> 
+<li>Airport Shuttle</li>   
+</ul> 
+</section> 
+<section id="gallery"> 
+<h2>Gallery</h2> 
+<img src="room1.jpg" alt="Room 1" width="300" height="200"> 
+<img src="room2.jpg" alt="Room 2" width="300" height="200"> 
+<img src="pool.jpg" alt="Hotel Pool" width="300" height="200"> 
+<!-- <img src="undefined.jpg" alt="Undefined" width="300"> <!- --> 
+</section> 
+<aside> 
+<h3>Customer Reviews</h3> 
+<h4>John Doe</h4> 
+<p><q>The Stay was amazing. The service was exceptional, 
+and the room was perfect!</q></p> 
+<h4>Jane Smith</h4> 
+<p><q>A wonderful exprerience. Highly recommend 
+the suite for a luxury stay!</q></p> 
+<h4>Mark Johnson</h4> 
+<p><q>Great location, fantastic amenities, and friendly 
+staff. Will definitely return!</q></p> 
+</aside> 
+<footer id="contact"> 
+<h2>Contact Us</h2> 
+<p>For booking inquiries, contact us at: info@luxurystays.com</p> 
+<p>&copy 2025 Luxury Stays. All rights reserved.</p> 
+</footer> 
+<section> 
+<h2>Register Now</h2> 
+<ul> 
+<li>Standard Pass - $99</li> 
+<li>VIP Pass - $199</li> 
+<li>Student Pass - $49</li> 
+</ul> 
+</section> 
+
+
+
+WEEK-2 PRACTICE AT HOME-1 
+
+<!-- write you code here --> 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Product Catalog</title> 
+</head> 
+<body> 
+<h1>Welcome to Our Product Catalog</h1> 
+<p> 
+Welcome to our product catalog. Here you will find a selection 
+of the  latest and most popular products available in our 
+store. 
+</p> 
+<h2>Our Products</h2> 
+<ul> 
+<li>Electronics</li> 
+<li>Accessories</li> 
+<li>Home Appliances</li> 
+</ul> 
+<table border="1"> 
+<thead> 
+<tr> 
+<th>Product Name</th> 
+<th>Price</th> 
+<th>Description</th> 
+</tr> 
+</thead> 
+<tbody> 
+<tr> 
+<td>Laptop</td> 
+<td>$1200</td> 
+<td>A high-performance laptop</td> 
+</tr> 
+<tr> 
+<td>Smartphone</td> 
+<td>$800</td> 
+<td>A latest model smartphone</td> 
+</tr> 
+<tr> 
+<td>Headphones</td> 
+<td>$150</td> 
+<td>Noise-cancelling headphones</td> 
+</tr> 
+<tr> 
+<td>Smartwatch</td> 
+<td>$250</td> 
+<td>Fitness tracking smartwatch</td> 
+</tr> 
+<tr> 
+<td>Tablet</td> 
+<td>$500</td> 
+<td>A lightweight tablet with great features</td> 
+</tr> 
+</tbody> 
+</table> 
+</body> 
+</html> 
+
+
+WEEK-2 PRACTICE AT HOME -2 
+
+<!-- write you code here --> 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>E-Commerce Product Catalog</title> 
+</head> 
+<body> 
+<header> 
+<h1>Welcome to Our E-Commerce Store</h1> 
+<p>We offer a wide variety of products to suit all your needs.</p> 
+</header> 
+<section> 
+<h2>Product Categories</h2> 
+<ul> 
+<li>Electronics</li> 
+<li>Clothing</li> 
+<li>Home Appliances</li> 
+</ul> 
+</section> 
+<section> 
+<h2>Product Catalog</h2> 
+<table border="1"> 
+<thead> 
+<tr> 
+<th>Product Name</th> 
+<th>Price</th> 
+<th>Description</th> 
+<th>Image</th> 
+</tr> 
+</thead> 
+<tbody> 
+<tr> 
+<td>Laptop</td> 
+<td>$1200</td> 
+<td>A high-performance laptop</td> 
+<td><img src="./laptop.jpg" alt="laptop" 
+width="300" height="200"></td> 
+</tr> 
+<tr> 
+<td>Smartphone</td> 
+<td>$800</td> 
+<td>Latest model smartphone</td> 
+<td><img src="./smartphone.jpg" alt="smartphone" 
+width="300" height="200" ></td> 
+</tr> 
+<tr> 
+<td>Headphones</td> 
+<td>$150</td> 
+<td>Noise-cancelling headphones</td> 
+<td><img src="./headphones.jpg" alt="headphones" 
+width="300" height="200" ></td> 
+</tr> 
+<tr> 
+<td>Smartwatch</td> 
+<td>$250</td> 
+<td>Fitness tracking smartwatch</td> 
+<td><img src="./smartwatch.jpg" alt="smartwatch" 
+width="300" height="200"  ></td> 
+</tr> 
+<tr> 
+<td>Tablet</td> 
+<td>$500</td> 
+<td>A lightweight tablet with great features</td> 
+<td><img src="./tablet.jpg" alt="tablet" 
+width="300" height="200"  ></td> 
+</tr> 
+</tbody> 
+</table> 
+</section> 
+<section> 
+<h2>Best-Selling Products</h2> 
+<article> 
+<h3>Laptop</h3> 
+<p>A high performance laptop for work and environment.</p> 
+<img src="./laptop.jpg" alt="laptop" width="300" height="200"> 
+<ul> 
+<li>Fast Processor</li> 
+<li>Large screen</li> 
+<li>Long battery life</li> 
+</ul> 
+</article> 
+<article> 
+<h3>Smartphone</h3> 
+<p>Latest model smartphone with advanced features.</p> 
+<img src="./smartphone.jpg" alt="smartphone" width="300" 
+height="200"> 
+<ul> 
+<li>High-resolution camera</li> 
+<li>Fast performance</li> 
+<li>Long battery life</li> 
+</ul> 
+</article> 
+<article> 
+<h3>Smartwatch</h3> 
+<p>Fitness tracking smartwatch for a healthy lifestyle.</p> 
+<img src="./smartwatch.jpg" alt="smartwatch" width="300" 
+height="200"> 
+<ul> 
+<li>Track steps and heart rate</li> 
+<li>Water-resistant</li> 
+<li>Long battery life</li> 
+</ul> 
+</article> 
+</section> 
+<sidebar> 
+<h3>Special Offers</h3> 
+<ul> 
+<li>50% off on selected electronics</li> 
+<li>Buy 1, Get 1 Free on accessories</li> 
+<li>Seasonal sale: Up to 40% off on home appliances</li> 
+</ul> 
+</sidebar> 
+<section> 
+<h2>Customer Testimonials</h2> 
+<h3>John Doe</h3> 
+<p><q>I am thrilled with my new laptop from this store. 
+The delivery was fast, and the product is amazing!</q></p> 
+<h3>Jane Smith</h3> 
+<p><q>The smartphone I bought exceeded my expectations. Great 
+performance and value for money!</q></p> 
+<h3>Mark Johnson</h3> 
+<p><q>The smartphone I purchased is exactly what I needed 
+to stay fit. Highly resommended!</q></p> 
+</section> 
+<footer> 
+<p>Contact us at <u>info@ecommerce.com</u></p> 
+<p>2025 E-Commerce Store. All rights reserved.</p> 
+</footer> 
+</body> 
+</html> 
+
+
+
+WEEK-2 CHALLENGE YOURSELF  
+
+<!-- write you code here --> 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Tech Innovators 2025 - Event Page</title> 
+</head> 
+<body> 
+<header> 
+<h1>Tech Innovators 2025</h1> 
+<h2>Innovating the Future of Technology</h2> 
+<img src="event-logo.jpg" alt="event-logo" 
+width="100" height="100"> 
+</header> 
+<section> 
+<h2>About the Event</h2> 
+<p>Tech Innovators 2025 is a premier event that brings minds 
+in technology. Join us to explore the latest trends and 
+innovation in the tech industry, network with thought leaders, 
+and gain insights into the future of technology. 
+</p> 
+</section> 
+<section> 
+<h2>Event Schedule</h2> 
+<table border="1"> 
+<thead> 
+<tr> 
+<th>Time</th> 
+<th>Session</th> 
+<th>Speaker</th> 
+</tr> 
+</thead> 
+<tbody> 
+<tr> 
+<td>9:00 AM</td> 
+                    <td>Keynote: The Future of AI</td> 
+                    <td>Dr. John Doe</td> 
+                </tr> 
+ 
+                <tr> 
+                    <td>11:00 AM</td> 
+                    <td>Blockchain for Business</td> 
+                    <td>Jane Smith</td> 
+                </tr> 
+ 
+ 
+                <tr> 
+                    <td>1:00 PM</td> 
+                    <td>Innovation in Cloud Computing</td> 
+                    <td>Mark Johnson</td> 
+                </tr> 
+ 
+                <tr> 
+                    <td>3:00 PM</td> 
+                    <td>Tech Startups: How to Disrupt the Market </td> 
+                    <td>Alice Brown</td> 
+                </tr> 
+ 
+                <tr> 
+                    <td>5:00 PM</td> 
+                    <td>Clouding Remarks & Networking</td> 
+                    <td>Event Organization</td> 
+                </tr> 
+ 
+            </tbody> 
+        </table> 
+    </section> 
+ 
+    <section> 
+        <h2>Speakers</h2> 
+        <article> 
+            <h3>Dr. John Doe</h3> 
+            <p>Dr. John Doe is a renowned expert in AI with over 
+                20 years of experience in the field. He will be 
+                discussing the future of artificial intelligence and 
+                its impact on various industries. 
+            </p> 
+            <img src="./john-doe.jpg" alt="john-doe" width="100" 
+height="150"> 
+        </article> 
+ 
+        <article> 
+            <h3>Jane Smith</h3> 
+            <p>Jane Smith is a leading blockchain expert 
+            and a thought leader in decentralized technologies. She will 
+            discuss the impact of blockchain on business and finance. 
+            </p> 
+            <img src="./jane-smith.jpg " alt="jane-smith" width="100" 
+height="150"> 
+        </article> 
+ 
+ 
+        <article> 
+            <h3>Mark Johnson</h3> 
+            <p>Mark Johnson is a cloud computing visionary and CEO 
+                of CloudTech Innovations. He will share his insights into 
+the latest 
+                advancements in cloud infrastructure. 
+            </p> 
+            <img src="./mark-johnson.jpg " alt="mark-johnson" width="100" 
+height="150"> 
+        </article> 
+ 
+ 
+    </section> 
+ 
+    <section> 
+        <h2>Venue</h2> 
+        <p>The event will be held at the Grand Tech Conference 
+            Center, located in downtown Silicon Valley. 
+        </p> 
+        <img src="./venue.jpg" alt="venue" width="'200" height="200"> 
+    </section> 
+ 
+    <aside> 
+<h3>Our Sponsors</h3> 
+<ul> 
+<li>TechCorp</li> 
+<li>Innovate Solutions</li> 
+<li>Global Technologies</li> 
+</ul> 
+</aside> 
+<footer> 
+<h2>Contact Us</h2> 
+<p>For more information, email us at 
+<u>info@techinnovators2025.com</u></p> 
+<p>Copyrights, 2025 Tech Innovators 2025. All rights reserved.</p> 
+</footer> 
+<section> 
+<h2>Register Now</h2> 
+<ul> 
+<li>General Admissions: $1000</li> 
+<li>VIP Admissions: $250</li> 
+<li>Student Admissions: $50</li> 
+</ul> 
+</section> 
+</body> 
+</html>
